@@ -19,6 +19,8 @@ import dao.IAgence;
 import dao.IClientInde;
 import dao.IClientMoral;
 import dao.IClientS;
+import dao.ISecretaire;
+import dao.SecretaireImpl;
 import metier.IRespoCompte;
 import metier.RespImpl;
 import model.Agence;
@@ -26,6 +28,7 @@ import model.ClientIndep;
 import model.ClientMoral;
 import model.ClientS;
 import model.RespoCompte;
+import model.Secretaire;
 
 @WebServlet(urlPatterns = {"*.da"})
 public class ControllerProj extends HttpServlet {
@@ -38,6 +41,7 @@ public class ControllerProj extends HttpServlet {
 	IAgence iagence;
 	IClientInde iclINde;
 	IClientMoral icm;
+	private ISecretaire isecretaire;
 	
 	@Override
 	public void init() throws ServletException {
@@ -46,6 +50,7 @@ public class ControllerProj extends HttpServlet {
 		iagence = new AgenceImpl(); 
 		iclINde = new CIndependantImpl();
 		icm = new ClientMoralImpl();
+		isecretaire = new SecretaireImpl();
 	}
 	
 	@Override
@@ -74,10 +79,13 @@ public class ControllerProj extends HttpServlet {
 		PrintWriter pr = resp.getWriter();
 		
 		if(req.getServletPath().equalsIgnoreCase("/test.da")) {
+			//fetch the content from the form
 			String personne = req.getParameter("type");
 			String login = req.getParameter("login");
 			String pwd = req.getParameter("password");
 			String btn = req.getParameter("btn");
+			
+			
 			switch(personne){
 			case "responsable":
 				RespoCompte responsable = irc.getRespoByLog(login, pwd);
@@ -116,7 +124,12 @@ public class ControllerProj extends HttpServlet {
 				pr.print("administrateur ");
 				break;
 			case "caissiere":
-				pr.print("caissiere");
+				Secretaire sc = isecretaire.findByLoginAndPassword(login, pwd);
+				if(sc!=null) {
+					
+				}else {
+					
+				}
 				break;
 			}
 			
