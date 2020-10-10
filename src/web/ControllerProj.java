@@ -30,7 +30,7 @@ import model.ClientS;
 import model.RespoCompte;
 import model.Secretaire;
 
-@WebServlet(urlPatterns = {"*.da"})
+@WebServlet(urlPatterns = {"/","*.da"})
 public class ControllerProj extends HttpServlet {
 	/**
 	 * 
@@ -124,11 +124,22 @@ public class ControllerProj extends HttpServlet {
 				pr.print("administrateur ");
 				break;
 			case "caissiere":
+				//verify if the secretary is there
 				Secretaire sc = isecretaire.findByLoginAndPassword(login, pwd);
-				if(sc!=null) {
+				
+				//if the result is different of null
+				if(sc!=null){
+					//set the session the complete name 
+					ses.setAttribute("name_caissiere",sc.getNom()+" "+sc.getPrenom());
 					
-				}else {
+					//the id of the caissiere 
+					ses.setAttribute("id_caissiere", sc.getIdEmploye());
 					
+					//redirection
+					resp.sendRedirect("caissiere/views/index_caiss.jsp");
+					
+				}else{
+					resp.sendRedirect("index.jsp");
 				}
 				break;
 			}
