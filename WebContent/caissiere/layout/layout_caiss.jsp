@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="position:sticky;top:0;">
-  <a class="navbar-brand">
+  <a class="navbar-brand" href="../../caissiereIndex">
   <span style="font-family:'Sansita Swashed', cursive;">BANQUE</span>
   <span style="font-family:'Sansita Swashed', cursive;">PEUPLE</span>
   </a>
@@ -9,13 +9,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../../caissiereIndex">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="../../depot.da_caiss">DEPOT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link2</a>
+        <a class="nav-link" href="../../retrait.da_caiss">RETRAIT</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="">VIREMENT</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
