@@ -26,10 +26,12 @@ public class CaissiereController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter pr = resp.getWriter();
-		if(req.getServletPath().equalsIgnoreCase("/retrait.da_caiss")) {
-			pr.print("<h1>RETRAIT</h1>");
+		if(req.getServletPath().equalsIgnoreCase("/retrait.da_caiss")){
+			resp.sendRedirect("caissiere/views/retrait.jsp");
 		}else if(req.getServletPath().equalsIgnoreCase("/depot.da_caiss")){
-			pr.print("<h1>DEPOT</h1>");
+			resp.sendRedirect("caissiere/views/depot.jsp");
+		}else if(req.getServletPath().equalsIgnoreCase("/virement.da_caiss")) {
+			resp.sendRedirect("caissiere/views/virement.jsp");
 		}else{
 			resp.sendRedirect("caissiere/views/index_caiss.jsp");
 		}

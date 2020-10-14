@@ -47,7 +47,7 @@ public class ControllerProj extends HttpServlet {
 	public void init() throws ServletException {
 		bd = new BD();
 		irc= new RespImpl();
-		iagence = new AgenceImpl(); 
+		iagence = new AgenceImpl();
 		iclINde = new CIndependantImpl();
 		icm = new ClientMoralImpl();
 		isecretaire = new SecretaireImpl();
