@@ -5,9 +5,8 @@
 <head>
 <jsp:include page="../layout/layout_caiss.jsp"></jsp:include>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <title>CAISSIERE | INDEX</title>
-<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet"/>
+
 </head>
 <body>
 	<h1>WELCOME <%= session.getAttribute("name_caissiere") %></h1>
