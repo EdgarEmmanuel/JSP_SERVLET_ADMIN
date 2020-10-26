@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet({"/caissiereIndex","*.caiss","*.da_caiss"})
 public class CaissiereController extends HttpServlet {
@@ -25,7 +26,8 @@ public class CaissiereController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PrintWriter pr = resp.getWriter();
+		HttpSession session = req.getSession();
+		session.setAttribute("base", "http://localhost:8081/addCompte_Proj/WebContent/");
 		if(req.getServletPath().equalsIgnoreCase("/retrait.da_caiss")){
 			resp.sendRedirect("caissiere/views/retrait.jsp");
 		}else if(req.getServletPath().equalsIgnoreCase("/depot.da_caiss")){
