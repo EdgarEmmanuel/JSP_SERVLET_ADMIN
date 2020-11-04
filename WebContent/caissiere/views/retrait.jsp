@@ -8,6 +8,11 @@
 <title>RETRAIT | PAGE</title>
 </head>
 <body>
-	<h1>RETRAIT</h1>
+	<h1 style="text-align:center;">RETRAIT BANCAIRE </h1>
+	<form action="" class="container" method="post">
+		<input type="text" placeholder="numero compte" class="form-control" required /><br/><br/>
+		<input type="number" placeholder="montant a retirer" class="form-control" required /><br/><br/>
+		<input type="submit" class="btn btn-primary" value="ENVOYER" />
+	</form>
 </body>
 </html>
