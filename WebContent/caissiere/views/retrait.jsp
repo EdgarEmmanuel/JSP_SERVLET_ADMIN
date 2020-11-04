@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1 style="text-align:center;">RETRAIT BANCAIRE </h1>
-	<form action="" class="container" method="post">
+	<form action="../../retrait_action.caiss" class="container" method="post">
 		<input type="text" placeholder="numero compte" class="form-control" required /><br/><br/>
 		<input type="number" placeholder="montant a retirer" class="form-control" required /><br/><br/>
 		<input type="submit" class="btn btn-primary" value="ENVOYER" />

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1 style="text-align:center;">DEPOT BANCAIRE </h1>
-	<form action="" class="container" method="post">
+	<form action="../../depot_action.caiss" class="container" method="post">
 		<input type="text" placeholder="numero compte" class="form-control" required /><br/><br/>
 		<input type="number" placeholder="montant" class="form-control" required /><br/><br/>
 		<input type="submit" class="btn btn-primary" value="ENVOYER" />
