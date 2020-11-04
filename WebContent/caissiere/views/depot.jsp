@@ -8,6 +8,11 @@
 <title>DEPOT | PAGE</title>
 </head>
 <body>
-	<h1>DEPOT</h1>
+	<h1 style="text-align:center;">DEPOT BANCAIRE </h1>
+	<form action="" class="container" method="post">
+		<input type="text" placeholder="numero compte" class="form-control" required /><br/><br/>
+		<input type="number" placeholder="montant" class="form-control" required /><br/><br/>
+		<input type="submit" class="btn btn-primary" value="ENVOYER" />
+	</form>
 </body>
 </html>
