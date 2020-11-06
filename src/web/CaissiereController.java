@@ -45,7 +45,14 @@ public class CaissiereController extends HttpServlet {
 	}
 	
 	public void action_depot(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
-		pr.print("action depot");
+		String numeroCompte = req.getParameter("compte");
+		int montantDepot = Integer.parseInt(req.getParameter("montant"));
+		
+		//verifier si le compte existe
+			//faire un depot 
+			//notigfier la caissiere 
+		
+		//sinon envoyer message erreur
 	}
 	
 	public void action_virement(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
