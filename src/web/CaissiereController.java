@@ -48,7 +48,8 @@ public class CaissiereController extends HttpServlet {
 		String numeroCompte = req.getParameter("compte");
 		int montantDepot = Integer.parseInt(req.getParameter("montant"));
 		
-		//verifier si le compte existe
+		//si le compte existe avec ses deux premiers caracteres 
+			//aller chercher dans la table correspondante 
 			//faire un depot 
 			//notigfier la caissiere 
 		
