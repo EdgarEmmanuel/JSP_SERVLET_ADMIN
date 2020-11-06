@@ -40,15 +40,15 @@ public class CaissiereController extends HttpServlet {
 	}
 	
 	
-	public void traitement_retrait(PrintWriter pr) {
+	public void traitement_retrait(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
 		pr.print("action retrait");
 	}
 	
-	public void action_depot(PrintWriter pr) {
+	public void action_depot(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
 		pr.print("action depot");
 	}
 	
-	public void action_virement(PrintWriter pr) {
+	public void action_virement(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
 		pr.print("action virement");
 	}
 	
@@ -57,11 +57,11 @@ public class CaissiereController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter pr = resp.getWriter();
 		if(req.getServletPath().equalsIgnoreCase("/depot_action.caiss")) {
-			action_depot(pr);
+			action_depot(pr,req,resp);
 		}else if(req.getServletPath().equalsIgnoreCase("/retrait_action.caiss")){
-			traitement_retrait(pr);
+			traitement_retrait(pr,req,resp);
 		}else if(req.getServletPath().equalsIgnoreCase("/retrait_action.caiss")) {
-			action_virement(pr);
+			action_virement(pr,req,resp);
 		}
 	}
 
