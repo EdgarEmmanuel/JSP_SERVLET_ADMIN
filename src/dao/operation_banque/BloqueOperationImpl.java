@@ -4,11 +4,11 @@ import dao.BD;
 import dao.IOperations;
 import dao.OperationsImpl;
 
-public class CourantOperationImpl implements IOperation_Bancaire {
+public class BloqueOperationImpl implements IOperation_Bancaire {
 	private BD bd;
 	private IOperations ioperation;
 	
-	public CourantOperationImpl() {
+	public BloqueOperationImpl() {
 		bd= new BD();
 		ioperation = new OperationsImpl();
 	}

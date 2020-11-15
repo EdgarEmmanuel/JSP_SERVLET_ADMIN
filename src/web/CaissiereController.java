@@ -51,6 +51,7 @@ public class CaissiereController extends HttpServlet {
 		//si le compte existe avec ses deux premiers caracteres 
 			//aller chercher dans la table correspondante 
 			//faire un depot 
+		//mettre a jour dans la table operation
 			//notigfier la caissiere 
 		
 		//sinon envoyer message erreur

@@ -84,4 +84,24 @@ public class CompteBloqueImpl implements ICompteBloque {
 		return ok2;
 	}
 
+	@Override
+	public CompteBloque verifyIfCompteExist(String numCompte) {
+		CompteBloque compte_bloque = null;
+		String sql = "SELECT * FROM comptes c , compte_bloque cb "
+				+ "where c.num_compte=? and c.id_compte = cb.id_compte";
+		try {
+			bd.initPrepare(sql);
+			bd.getStmt().setString(1, numCompte);
+			
+			ResultSet rs = bd.exSelect();
+			
+			if(rs.next()) {
+				//set the data for the account locked 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return compte_bloque;
+	}
+
 }
