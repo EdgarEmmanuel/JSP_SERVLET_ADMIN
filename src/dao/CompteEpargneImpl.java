@@ -6,7 +6,7 @@ import com.mysql.cj.protocol.Resultset;
 
 import model.CompteEpargne;
 
-public class CompteEpargneImpl implements ICompteEpargne {
+public class CompteEpargneImpl implements ICompteEpargne,ForAllAccount {
 	private BD bd = new BD();
 
 	@Override
@@ -60,6 +60,25 @@ public class CompteEpargneImpl implements ICompteEpargne {
 			// TODO: handle exception
 		}
 		return ok;
+	}
+
+	@Override
+	public int verifyIfCompteExist(String numCompte) {
+		int id_Compte =0;
+		String sql = "SELECT id_compte FROM comptes c where c.num_compte=? ";
+		try {
+			bd.initPrepare(sql);
+			bd.getStmt().setString(1, numCompte);
+			
+			ResultSet rs = bd.exSelect();
+			
+			if(rs.next()) {
+				id_Compte = rs.getInt("id_compte");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return id_Compte;
 	}
 
 }

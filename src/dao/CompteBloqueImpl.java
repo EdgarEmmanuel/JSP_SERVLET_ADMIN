@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 
 import model.CompteBloque;
 
-public class CompteBloqueImpl implements ICompteBloque {
+public class CompteBloqueImpl implements ICompteBloque,ForAllAccount {
 	private BD bd = new BD();
 	private IOperations ioperation = new OperationsImpl();
 
@@ -85,10 +85,9 @@ public class CompteBloqueImpl implements ICompteBloque {
 	}
 
 	@Override
-	public CompteBloque verifyIfCompteExist(String numCompte) {
-		CompteBloque compte_bloque = null;
-		String sql = "SELECT * FROM comptes c , compte_bloque cb "
-				+ "where c.num_compte=? and c.id_compte = cb.id_compte";
+	public int verifyIfCompteExist(String numCompte) {
+		int id_Compte =0;
+		String sql = "SELECT id_compte FROM comptes c where c.num_compte=? ";
 		try {
 			bd.initPrepare(sql);
 			bd.getStmt().setString(1, numCompte);
@@ -96,12 +95,12 @@ public class CompteBloqueImpl implements ICompteBloque {
 			ResultSet rs = bd.exSelect();
 			
 			if(rs.next()) {
-				//set the data for the account locked 
+				id_Compte = rs.getInt("id_compte");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return compte_bloque;
+		return id_Compte;
 	}
 
 }

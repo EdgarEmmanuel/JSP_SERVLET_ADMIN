@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import model.CompteCourant;
 import model.Operations;
 
-public class CompteCourantImpl implements ICompteCourant {
+public class CompteCourantImpl implements ICompteCourant,ForAllAccount {
 	private BD bd = new BD();
 	private IOperations io = new OperationsImpl();
 
@@ -96,6 +96,25 @@ public class CompteCourantImpl implements ICompteCourant {
 			e.printStackTrace();
 		}
 		return val;
+	}
+
+	@Override
+	public int verifyIfCompteExist(String numCompte) {
+		int id_Compte =0;
+		String sql = "SELECT id_compte FROM comptes c where c.num_compte=? ";
+		try {
+			bd.initPrepare(sql);
+			bd.getStmt().setString(1, numCompte);
+			
+			ResultSet rs = bd.exSelect();
+			
+			if(rs.next()) {
+				id_Compte = rs.getInt("id_compte");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return id_Compte;
 	}
 
 	
