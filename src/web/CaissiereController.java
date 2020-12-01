@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.operation_banque.CourantOperationImpl;
+import dao.operation_banque.IOperation_Bancaire;
+import helper.VerifyNumAccount;
+
 @WebServlet({"/caissiereIndex","*.caiss","*.da_caiss"})
 public class CaissiereController extends HttpServlet {
 	
@@ -17,11 +21,13 @@ public class CaissiereController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private IOperation_Bancaire ioperation;
 
 
 	@Override
-	public void init() throws ServletException {
-		
+	public void init(){
+		ioperation = new CourantOperationImpl();
 	}
 	
 	@Override
@@ -49,12 +55,22 @@ public class CaissiereController extends HttpServlet {
 		int montantDepot = Integer.parseInt(req.getParameter("montant"));
 		
 		//si le compte existe avec ses deux premiers caracteres 
+			int val = new VerifyNumAccount().getTheAccount(numeroCompte);
+			
+			
 			//aller chercher dans la table correspondante 
-			//faire un depot 
-		//mettre a jour dans la table operation
-			//notigfier la caissiere 
-		
-		//sinon envoyer message erreur
+			switch(val) {
+				case 1:
+					//verifier si compte existe 
+					//donc faire depot
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 0:
+					break;
+			}
 	}
 	
 	public void action_virement(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
