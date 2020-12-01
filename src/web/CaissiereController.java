@@ -27,7 +27,7 @@ public class CaissiereController extends HttpServlet {
 
 	@Override
 	public void init(){
-		ioperation = new CourantOperationImpl();
+		
 	}
 	
 	@Override
@@ -62,16 +62,20 @@ public class CaissiereController extends HttpServlet {
 			switch(val) {
 				case 1:
 					//verifier si compte existe 
-					//donc faire depot
 					break;
 				case 2:
+					//verifier si compte epargne existe 
 					break;
 				case 3:
+					//verifier si compte bloque existe 
 					break;
 				case 0:
+					//throw an error  
 					break;
 			}
+			
 	}
+	
 	
 	public void action_virement(PrintWriter pr,HttpServletRequest req, HttpServletResponse resp) {
 		pr.print("action virement");
